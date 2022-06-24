@@ -1,0 +1,9 @@
+mat-sidenav-content, mat-sidenav-container, mat-sidenav {
+  height: 100%;
+}
+
+/* to fix the size of side nav bar */
+mat-sidenav {
+  width: 200px;
+}
+
