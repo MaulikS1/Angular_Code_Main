@@ -19,6 +19,7 @@ import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common'
 import {NgToastModule} from "ng-angular-popup";
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent, SignupComponent, LoginComponent, UsersComponent, AddnewuserComponent, SearchuserComponent, HomeComponent, HeaderComponent, SidenavListComponent],
@@ -31,7 +32,11 @@ import {NgToastModule} from "ng-angular-popup";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgToastModule
+    NgToastModule,
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      preventDuplicates: true,
+    }),
   ],
   providers: [AuthService,DatePipe],
 

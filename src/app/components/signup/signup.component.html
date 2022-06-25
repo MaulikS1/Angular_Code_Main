@@ -33,4 +33,7 @@
 
     <button mat-raised-button type="submit" [disabled]="f.invalid" color="primary">Submit</button>
   </form>
+  <div fxLayout="row" fxLayoutAlign="space-around center" style="height:100%; margin-top: 1.5%;">
+    <mat-spinner *ngIf="showSpinner" diameter="60" strokeWidth="7"></mat-spinner>
+</div>
 </section>

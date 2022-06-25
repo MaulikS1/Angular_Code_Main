@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgToastService } from "ng-angular-popup";
@@ -10,7 +10,7 @@ import { NgToastService } from "ng-angular-popup";
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
+  loginForm!: UntypedFormGroup;
   showSpinner = false;
 
   constructor(private authService: AuthService, private router: Router, private toast: NgToastService) {}
@@ -20,11 +20,11 @@ export class LoginComponent implements OnInit {
   }
 
   initializeform() {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', {
+    this.loginForm = new UntypedFormGroup({
+      email: new UntypedFormControl('', {
         validators: [Validators.required, Validators.email],
       }),
-      password: new FormControl('', { validators: [Validators.required] }),
+      password: new UntypedFormControl('', { validators: [Validators.required] }),
     });
   }
 

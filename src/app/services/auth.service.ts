@@ -18,7 +18,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
 
   registerUser(authData: User): Observable<any> {
-    console.log("Service Data ==>",authData);
+    //console.log("Service Data ==>",authData);
     return this.http.post<any>(`${baseURL}users/newUser`, authData);
   }
 
