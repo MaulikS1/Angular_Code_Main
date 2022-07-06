@@ -1,8 +1,9 @@
+<body>  
 <section>
   <form
     fxLayout="column"
     fxLayoutAlign="center center"
-    fxLayoutGap="10px"
+    fxLayoutGap="20px"
     [formGroup]="loginForm"
     (ngSubmit)="onSubmit()">
     <h2>Login</h2>
@@ -22,8 +23,10 @@
         placeholder="Your password"
         formControlName="password">
       <mat-hint>Please enter your password.</mat-hint>
-      <mat-error>Missing password.</mat-error>
+      <mat-error>Password is empty.</mat-error>
     </mat-form-field>
+    Forgot Password?<a routerLink="/">Reset</a>
+
     <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Submit</button>
   </form>
   <div fxLayout="row" fxLayoutAlign="space-around center" style="height:100%; margin-top: 1.5%;">
@@ -31,3 +34,4 @@
 </div>
 </section>
 <lib-ng-toast></lib-ng-toast>
+</body>

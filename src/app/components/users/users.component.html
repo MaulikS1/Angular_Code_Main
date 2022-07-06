@@ -1,25 +1,26 @@
 <h3>Welcome User</h3>
 
-<table mat-table class="mat-elevation-z8">
-
-   
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-    </ng-container>
-  
-
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-    </ng-container>
-  
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-    </ng-container>
-  
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+<div class="container">         
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>First Name</th>
+        <th>Email</th>
+        <th>Created Date</th>
+        <th>End Date</th>
+        <th>Active</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let userDetail of usersDetails">
+        <td>{{userDetail.userid}}</td>
+        <td>{{userDetail.name | titlecase}}</td>
+        <td>{{userDetail.email}}</td>
+        <td>{{userDetail.createdDate | date: 'dd/MM/yyyy'}}</td>
+        <td>{{userDetail.endDate | date: 'dd/MM/yyyy'}}</td>
+        <td>{{userDetail.isActive ? 1:0}}</td>
+      </tr>
+    </tbody>
   </table>
+</div>

@@ -46,7 +46,6 @@ export class SignupComponent implements OnInit {
       }
     },
     error => {
-      //console.log("OOPS===>",error);
       this.showSpinner = false;
       this.showError();
   });

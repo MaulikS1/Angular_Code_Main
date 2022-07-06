@@ -3,6 +3,7 @@ import { UntypedFormControl, UntypedFormGroup, NgForm, Validators } from '@angul
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgToastService } from "ng-angular-popup";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   loginForm!: UntypedFormGroup;
   showSpinner = false;
 
-  constructor(private authService: AuthService, private router: Router, private toast: NgToastService) {}
+  constructor(private authService: AuthService, private router: Router, private toast: NgToastService,
+    private toster:ToastrService) {}
 
   ngOnInit(): void {
     this.initializeform();
@@ -42,14 +44,24 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/users']);
           } else {
             this.showSpinner = false;
+            if(result.message.includes("User is not Active"))
+            {
+              this.openAlert(result.message);
+            }
+            else{
             this.openError(result.message);
+            }
           }
         });
     }
   }
 
   openError(msg:string){
-    this.toast.error({detail: msg, summary: 'Please enter correct email and password.', position:'tr', sticky: true, duration: 5000});
+    this.toster.error(msg, "Error !!");
+  }
+
+  openAlert(msg:string){
+    this.toster.warning(msg, "Inactive !!");
   }
 
 

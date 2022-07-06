@@ -36,6 +36,8 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot({
       timeOut: 4000,
       preventDuplicates: true,
+      closeButton: true,
+      // positionClass: 'toast-top-full-width',
     }),
   ],
   providers: [AuthService,DatePipe],

@@ -23,11 +23,9 @@ export class AuthService {
   }
 
   login(authData: AuthData) {
-    this.user = this.http.post(`${baseURL}users/login`, authData).pipe(
+    this.user = this.http.post(`${baseURL}users/login`, authData,{withCredentials: true}).pipe(
       map((user: any) => {
-        //console.log('Service Call==>', authData);
         this.authSuccess();
-        sessionStorage.setItem('Jsontoken', user.token);
         this.Jsontoken = user.token;
         return user;
       })
